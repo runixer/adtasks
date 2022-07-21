@@ -1,7 +1,7 @@
 import requests
 from checklib import *
 
-PORT = 1337
+PORT = 1338
 
 class CheckMachine:
     @property

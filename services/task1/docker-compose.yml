@@ -7,7 +7,7 @@ services:
     mem_limit: 64M
     cpus: 0.5
     ports:
-      - 1337:5000
+      - 1338:5000
 
   cleaner:
     image: c4tbuts4d/dedcleaner:latest
