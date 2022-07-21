@@ -26,20 +26,20 @@ class Checker(BaseChecker):
         session = get_initialized_session()
         flag_value = rnd_string(20)
         self.mch.put_flag(session, flag_value)
-        value = self.mch.get_flag(session, flag_value, Status.MUMBLE)
-        self.assert_eq(value, flag_value, "Note value is invalid")
+        value = self.mch.get_flag(session, Status.MUMBLE)
+        self.assert_eq(value, flag_value, "Flag value is invalid")
         self.cquit(Status.OK)
 
     def put(self, flag_id: str, flag: str, vuln: str):
         session = get_initialized_session()
-        self.mch.put_note(session, flag)
+        self.mch.put_flag(session, flag)
         self.cquit(Status.OK)
 
     def get(self, flag_id: str, flag: str, vuln: str):
         s = get_initialized_session()
-        value = self.mch.get_flag(s, flag, Status.CORRUPT)
+        value = self.mch.get_flag(s, Status.CORRUPT)
 
-        self.assert_eq(value, flag, "Note value is invalid", Status.CORRUPT)
+        self.assert_eq(value, flag, "Flag value is invalid", Status.CORRUPT)
 
         self.cquit(Status.OK)
 
